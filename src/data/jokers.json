@@ -1,0 +1,22 @@
+[
+  { "id": 1, "name": "The High Roller", "trigger": "Per Die", "desc": "+3 Mult for every 6 in scored hand.", "color": "#ffd700" },
+  { "id": 2, "name": "Lowrider", "trigger": "Per Die", "desc": "+4 Mult for every 1 in scored hand.", "color": "#ffd700" },
+  { "id": 3, "name": "Even Steven", "trigger": "Hand Rule", "desc": "+50 Chips if hand is all even.", "color": "#4aff9b" },
+  { "id": 4, "name": "Oddball", "trigger": "Hand Rule", "desc": "+50 Chips if hand is all odd.", "color": "#4aff9b" },
+  { "id": 5, "name": "Straight Shooter", "trigger": "Poker Hand", "desc": "+12 Mult on any Straight.", "color": "#9b6dff" },
+  { "id": 6, "name": "Pair Bond", "trigger": "Poker Hand", "desc": "+20 Chips on Pairs / Two Pair.", "color": "#9b6dff" },
+  { "id": 7, "name": "Three's Company", "trigger": "Poker Hand", "desc": "Three-of-a-Kind base score triggers twice.", "color": "#9b6dff" },
+  { "id": 8, "name": "Junk Dealer", "trigger": "Poker Hand", "desc": "High Card grants +300 Chips.", "color": "#ff9b4a" },
+  { "id": 9, "name": "Royal Flush", "trigger": "Poker Hand", "desc": "Five-of-a-Kind: +500 Chips +50 Mult.", "color": "#ff4a4a" },
+  { "id": 10, "name": "Full House Fanatic", "trigger": "Scaling", "desc": "+1 Mult each time Full House is played.", "color": "#9b6dff" },
+  { "id": 11, "name": "Energy Saver", "trigger": "Economy", "desc": "Unspent Energy yields +$2 instead of +$1.", "color": "#a0ff4a" },
+  { "id": 12, "name": "Card Counter", "trigger": "Hand Rule", "desc": "+1 Mult per card held when scoring.", "color": "#4a9eff" },
+  { "id": 13, "name": "Discard Synergy", "trigger": "Hand Rule", "desc": "+10 Chips per card played/discarded this round.", "color": "#4a9eff" },
+  { "id": 14, "name": "The Underdog", "trigger": "Score State", "desc": "+20 Mult if score < 10% of target.", "color": "#ff9b4a" },
+  { "id": 15, "name": "Rich Get Richer", "trigger": "Economy", "desc": "+1 Mult per $10 held.", "color": "#a0ff4a" },
+  { "id": 16, "name": "Golden Die", "trigger": "RNG", "desc": "One random die face is Golden (+50 chips).", "color": "#ffd700" },
+  { "id": 17, "name": "Four-Leaf Clover", "trigger": "Utility", "desc": "+1 free full board re-roll per hand.", "color": "#4aff9b" },
+  { "id": 18, "name": "The Escalator", "trigger": "Scaling", "desc": "+1 Mult for each consecutive hand in a round.", "color": "#9b6dff" },
+  { "id": 19, "name": "Stubborn Mule", "trigger": "Scaling", "desc": "+5 Mult for same poker hand twice in a row.", "color": "#ff9b4a" },
+  { "id": 20, "name": "The Scrapper", "trigger": "Economy", "desc": "+$1 to wallet every time you play an Active Card.", "color": "#a0ff4a" }
+]

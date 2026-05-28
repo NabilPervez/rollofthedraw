@@ -1,0 +1,22 @@
+[
+  { "id": 1, "name": "Nudge Up", "type": "Math", "cost": 1, "desc": "Add +1 to a selected die.", "color": "#4a9eff" },
+  { "id": 2, "name": "Nudge Down", "type": "Math", "cost": 1, "desc": "Subtract -1 from a selected die.", "color": "#4a9eff" },
+  { "id": 3, "name": "Flip", "type": "Logic", "cost": 1, "desc": "Turn a die to its opposite face (1↔6, 2↔5, 3↔4).", "color": "#9b6dff" },
+  { "id": 4, "name": "Re-roll Single", "type": "RNG", "cost": 1, "desc": "Re-roll one selected die.", "color": "#ff9b4a" },
+  { "id": 5, "name": "Re-roll All", "type": "RNG", "cost": 2, "desc": "Re-roll all 5 dice.", "color": "#ff9b4a" },
+  { "id": 6, "name": "Duplicate", "type": "Clone", "cost": 2, "desc": "Copy a die's value to another die.", "color": "#4aff9b" },
+  { "id": 7, "name": "Lock & Load", "type": "RNG", "cost": 2, "desc": "Lock 2 dice, re-roll the other 3.", "color": "#ff9b4a" },
+  { "id": 8, "name": "Max Out", "type": "Force", "cost": 1, "desc": "Force a selected die to become 6.", "color": "#ffd700" },
+  { "id": 9, "name": "Bottom Out", "type": "Force", "cost": 1, "desc": "Force a selected die to become 1.", "color": "#ffd700" },
+  { "id": 10, "name": "Evens Bias", "type": "RNG", "cost": 1, "desc": "Re-roll a die — guaranteed even.", "color": "#ff9b4a" },
+  { "id": 11, "name": "Odds Bias", "type": "RNG", "cost": 1, "desc": "Re-roll a die — guaranteed odd.", "color": "#ff9b4a" },
+  { "id": 12, "name": "Wildcard", "type": "Logic", "cost": 2, "desc": "Set a die to any value 1-6.", "color": "#9b6dff" },
+  { "id": 13, "name": "Snake Eyes", "type": "Force", "cost": 1, "desc": "Force two dice to become 1s.", "color": "#ffd700" },
+  { "id": 14, "name": "Boxcars", "type": "Force", "cost": 2, "desc": "Force two dice to become 6s.", "color": "#ffd700" },
+  { "id": 15, "name": "The Squeeze", "type": "Math", "cost": 2, "desc": "+1 or -1 to ALL dice.", "color": "#4a9eff" },
+  { "id": 16, "name": "Mirror", "type": "Clone", "cost": 1, "desc": "Copy leftmost die to rightmost die.", "color": "#4aff9b" },
+  { "id": 17, "name": "Draw Two", "type": "Draw", "cost": 1, "desc": "Draw 2 additional cards this turn.", "color": "#ff4a9b" },
+  { "id": 18, "name": "Energy Drink", "type": "Utility", "cost": 0, "desc": "Discard to gain 1 Energy.", "color": "#a0ff4a" },
+  { "id": 19, "name": "Substitute", "type": "Utility", "cost": 1, "desc": "Destroy 1 die, roll a fresh one.", "color": "#a0ff4a" },
+  { "id": 20, "name": "Clairvoyance", "type": "Draw", "cost": 1, "desc": "Reveal top 3 cards, pick 1 to draw.", "color": "#ff4a9b" }
+]
