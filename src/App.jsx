@@ -531,9 +531,113 @@ function clampDie(v) {
   return Math.min(6, Math.max(1, v));
 }
 
+// ─── ONBOARDING TUTORIAL ──────────────────────────────────────────────────────
+
+function OnboardingTutorial({ step, setStep, onClose }) {
+  const steps = [
+    {
+      title: "Welcome to Roll of the Draw!",
+      content: "A roguelike deckbuilder where poker meets dice.\n\nYour goal is to score enough points to beat the target score each round.",
+      icon: "🎲"
+    },
+    {
+      title: "The Mechanics",
+      content: "You have 5 dice. Every hand, you roll them and try to make the best poker hand possible (Pairs, Straights, Full Houses, etc.).\n\nThe better the hand, the more Chips and Multiplier you earn.",
+      icon: "🃏"
+    },
+    {
+      title: "Cards & Energy",
+      content: "You can manipulate your dice by playing cards from your hand.\n\nCards cost Energy (⚡) to play. Use them to change die faces, re-roll, or trigger powerful effects before you score your hand.",
+      icon: "⚡"
+    },
+    {
+      title: "The Shop & Jokers",
+      content: "After beating a round, you'll visit the Shop.\n\nSpend your Gold (💰) to buy new cards for your deck or equip passive Jokers to permanently boost your scoring.",
+      icon: "🛒"
+    }
+  ];
+
+  const current = steps[step];
+
+  return (
+    <div style={{
+      position: "fixed", inset: 0, background: "rgba(0,0,0,0.85)",
+      display: "flex", alignItems: "center", justifyContent: "center",
+      zIndex: 1000, fontFamily: "'Playfair Display', serif",
+    }}>
+      <div style={{
+        background: "linear-gradient(145deg, #1e1206, #130c04)",
+        border: "2px solid #ffd700",
+        borderRadius: "16px",
+        padding: "40px",
+        width: "min(500px, 90vw)",
+        textAlign: "center",
+        boxShadow: "0 0 40px rgba(255,215,0,0.2)",
+        position: "relative"
+      }}>
+        <button onClick={onClose} style={{
+          position: "absolute", top: "16px", right: "16px",
+          background: "transparent", border: "none", color: "#888",
+          fontSize: "20px", cursor: "pointer"
+        }}>✖</button>
+        
+        <div style={{ fontSize: "64px", marginBottom: "20px" }}>{current.icon}</div>
+        <div style={{ color: "#ffd700", fontSize: "24px", fontWeight: "700", marginBottom: "20px" }}>
+          {current.title}
+        </div>
+        <div style={{ color: "#c8a060", fontSize: "16px", lineHeight: "1.6", marginBottom: "40px", whiteSpace: "pre-wrap" }}>
+          {current.content}
+        </div>
+        
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <button 
+            onClick={() => setStep(Math.max(0, step - 1))}
+            style={{
+              background: "transparent", color: step === 0 ? "transparent" : "#c8a060", 
+              border: "none", cursor: step === 0 ? "default" : "pointer", fontSize: "16px", fontWeight: "700",
+              pointerEvents: step === 0 ? "none" : "auto"
+            }}
+          >
+            ← BACK
+          </button>
+          
+          <div style={{ display: "flex", gap: "8px" }}>
+            {steps.map((_, i) => (
+              <div key={i} style={{
+                width: "8px", height: "8px", borderRadius: "50%",
+                background: i === step ? "#ffd700" : "#444"
+              }} />
+            ))}
+          </div>
+
+          <button 
+            onClick={() => {
+              if (step === steps.length - 1) onClose();
+              else setStep(step + 1);
+            }}
+            style={{
+              background: "#ffd700", color: "#1a0800", border: "none",
+              borderRadius: "8px", padding: "8px 24px",
+              fontSize: "14px", fontWeight: "700", cursor: "pointer",
+              fontFamily: "'Playfair Display', serif"
+            }}
+          >
+            {step === steps.length - 1 ? "PLAY" : "NEXT →"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── MAIN GAME ────────────────────────────────────────────────────────────────
 
 export default function RollOfTheDraw() {
+  const [showOnboarding, setShowOnboarding] = useState(() => {
+    return localStorage.getItem("hasSeenTutorial") !== "true";
+  });
+  const [onboardingStep, setOnboardingStep] = useState(0);
+
   const initState = () => ({
     phase: "play", // play | shop | gameover
     roundIdx: 0,
@@ -1047,8 +1151,18 @@ export default function RollOfTheDraw() {
         borderRadius: "10px", padding: "10px 20px",
         boxShadow: "0 2px 12px rgba(0,0,0,0.5)",
       }}>
-        <div className="top-bar-title" style={{ color: "#ffd700", fontWeight: "900", letterSpacing: "1px" }}>
-          🎲 Roll of the Draw
+        <div className="top-bar-title" style={{ color: "#ffd700", fontWeight: "900", letterSpacing: "1px", display: "flex", alignItems: "center", gap: "12px" }}>
+          <span>🎲 Roll of the Draw</span>
+          <button 
+            onClick={() => { setOnboardingStep(0); setShowOnboarding(true); }}
+            style={{
+              background: "rgba(255,215,0,0.1)", border: "1px solid #ffd700", 
+              borderRadius: "50%", width: "22px", height: "22px",
+              color: "#ffd700", fontSize: "12px", fontWeight: "700",
+              cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center"
+            }}
+            title="How to Play"
+          >?</button>
         </div>
         <div className="top-bar-stats">
           <div style={{ textAlign: "center" }}>
@@ -1259,6 +1373,16 @@ export default function RollOfTheDraw() {
           shopCards={g.shopCards}
           shopJokers={g.shopJokers}
           equippedJokers={g.equippedJokers}
+        />
+      )}
+      {showOnboarding && (
+        <OnboardingTutorial 
+          step={onboardingStep} 
+          setStep={setOnboardingStep} 
+          onClose={() => {
+            setShowOnboarding(false);
+            localStorage.setItem("hasSeenTutorial", "true");
+          }} 
         />
       )}
     </div>
