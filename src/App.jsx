@@ -1,3 +1,4 @@
+import "./App.css";
 import { useState, useEffect, useCallback } from "react";
 
 // ─── CONSTANTS ────────────────────────────────────────────────────────────────
@@ -1040,17 +1041,16 @@ export default function RollOfTheDraw() {
       <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet" />
 
       {/* ── HEADER ── */}
-      <div style={{
-        display: "flex", alignItems: "center", justifyContent: "space-between",
+      <div className="top-bar" style={{
         background: "linear-gradient(90deg, #1a0e04, #2a1a08, #1a0e04)",
         border: "1px solid #5a4020",
         borderRadius: "10px", padding: "10px 20px",
         boxShadow: "0 2px 12px rgba(0,0,0,0.5)",
       }}>
-        <div style={{ color: "#ffd700", fontSize: "22px", fontWeight: "900", letterSpacing: "1px" }}>
+        <div className="top-bar-title" style={{ color: "#ffd700", fontWeight: "900", letterSpacing: "1px" }}>
           🎲 Roll of the Draw
         </div>
-        <div style={{ display: "flex", gap: "24px", alignItems: "center" }}>
+        <div className="top-bar-stats">
           <div style={{ textAlign: "center" }}>
             <div style={{ color: "#888", fontSize: "9px", letterSpacing: "2px" }}>ROUND</div>
             <div style={{ color: "#ffd700", fontSize: "18px", fontWeight: "700" }}>{g.roundIdx + 1}/10</div>
@@ -1093,16 +1093,10 @@ export default function RollOfTheDraw() {
       </div>
 
       {/* ── MAIN AREA ── */}
-      <div style={{ display: "flex", gap: "12px", flex: 1 }}>
+      <div className="main-layout">
 
         {/* ── JOKER SLOTS ── */}
-        <div style={{
-          width: "130px", flexShrink: 0,
-          background: "rgba(0,0,0,0.3)",
-          border: "1px solid #2a1a0a",
-          borderRadius: "10px", padding: "10px",
-          display: "flex", flexDirection: "column", gap: "6px",
-        }}>
+        <div className="joker-slots">
           <div style={{ color: "#888", fontSize: "9px", letterSpacing: "2px", marginBottom: "4px" }}>JOKERS</div>
           {Array(5).fill(null).map((_, i) => {
             const joker = g.equippedJokers[i];
@@ -1151,7 +1145,7 @@ export default function RollOfTheDraw() {
             )}
 
             {/* Dice */}
-            <div style={{ display: "flex", gap: "16px", justifyContent: "center" }}>
+            <div className="dice-row">
               {g.dice.map((die, i) => (
                 <div key={i}
                   onClick={() => needsDieSelection && handleDieClick(i)}
@@ -1233,10 +1227,7 @@ export default function RollOfTheDraw() {
                 {g.message}
               </div>
             </div>
-            <div style={{
-              display: "flex", gap: "8px", overflowX: "auto",
-              paddingBottom: "4px",
-            }}>
+            <div className="hand-area">
               {g.hand.length === 0 ? (
                 <div style={{ color: "#2a1a0a", fontSize: "13px", padding: "20px" }}>
                   No cards in hand
