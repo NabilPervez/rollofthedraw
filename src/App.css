@@ -182,3 +182,102 @@
     border-right-color: var(--border);
   }
 }
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.top-bar-title {
+  font-size: 22px;
+}
+
+.top-bar-stats {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .top-bar-stats {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
+.main-layout {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+}
+
+.joker-slots {
+  width: 130px;
+  flex-shrink: 0;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid #2a1a0a;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hand-area {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+@media (max-width: 1024px) {
+  .main-layout {
+    flex-direction: column;
+  }
+  
+  .joker-slots {
+    width: 100%;
+    flex-direction: row;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    align-items: center;
+    box-sizing: border-box;
+  }
+  
+  .joker-slots > div:first-child {
+    /* Make the "JOKERS" label look good in row layout */
+    margin-right: 8px;
+    margin-bottom: 0 !important;
+  }
+}
+
+.dice-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  max-width: 100%;
+}
+
+@media (max-width: 1024px) {
+  .dice-row {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .dice-row > div {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .dice-row svg {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}
