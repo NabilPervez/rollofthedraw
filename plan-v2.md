@@ -1,0 +1,7 @@
+1. Use `replace_with_git_merge_diff` on `src/App.jsx` to add `import './App.css';` and replace specific inline styles on the header, main layout, joker slots, stats row, hand container, cards, and dice components with specific CSS class names (e.g. `className="app-header"`, `className="main-layout"`, `className="joker-slots"`, `className="stats-row"`, `className="dice-area"`, `className="hand-area"`).
+2. Use `write_file` or `replace_with_git_merge_diff` to add the corresponding responsive CSS rules to `src/App.css` utilizing media queries (`@media (max-width: 1024px)` and `@media (max-width: 768px)`) to implement `flex-wrap: wrap`, change `flex-direction` to `column` for `main-layout`, lay out `joker-slots` horizontally, reduce gaps, and enable horizontal scrolling or wrapping for cards/dice.
+3. Use `replace_with_git_merge_diff` on `src/index.css` to update the `#root` selector to have better responsiveness (e.g., remove fixed width `width: 1126px;` or change to `width: 100%; max-width: 1200px; padding: 0 16px;`).
+4. Use `read_file` to verify that `src/App.jsx`, `src/App.css`, and `src/index.css` were correctly updated.
+5. Run `npm run build` using `run_in_bash_session` to verify the application compiles correctly and no regressions were introduced.
+6. Complete pre commit steps to ensure proper testing, verification, review, and reflection are done.
+7. Submit the changes using the `submit` tool.
